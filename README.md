@@ -10,3 +10,6 @@ This is the Git Wiki referring to the Underwater Project, a Zork type game coded
 -inventary
 -help
 -look
+
+###By Guillem Sunyer
+
