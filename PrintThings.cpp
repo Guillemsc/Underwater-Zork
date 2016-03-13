@@ -18,7 +18,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			{
 				if (pass)
 				{
-					 printf("Now you can go outisde\nHINT: You have to type: open door.\n"); 
+					 printf("Now you can go outisde\nHINT: You have to type: opendoor.\n"); 
 					 if (gate == true){
 						 if (seaSuit){ position = 3; wantToSetPos = false; }
 						 else{ printf("You died drowned\nDead End\n"); end = true; }

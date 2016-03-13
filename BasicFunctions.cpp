@@ -154,9 +154,9 @@ char InputWords(char input[20])
 		return 'h';
 	if (!strcmp(input, "quit") || !strcmp(input, "q") || !strcmp(input, "end")) //quit
 		return 'q';
-	if (!strcmp(input, "open door") || !strcmp(input, "od")) //open door
+	if (!strcmp(input, "opendoor") || !strcmp(input, "od")) //open door
 		return 'o';
-	if (!strcmp(input, "close door") || !strcmp(input, "cd")) //open door
+	if (!strcmp(input, "closedoor") || !strcmp(input, "cd")) //open door
 		return 'c';
 }
 
