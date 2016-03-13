@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textNorth, bool &textSouth, bool &textEast, bool &textWest, bool &pass, bool &lantern, bool &key, bool &seaSuit, bool &metalBar, bool &oxigenTank, bool &masterPass, bool &reenforcedSeasuit, bool &electricity, bool &end, bool &robot, bool &elevator, bool &enemy)
+void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textNorth, bool &textSouth, bool &textEast, bool &textWest, bool &pass, bool &lantern, bool &key, bool &seaSuit, bool &metalBar, bool &oxigenTank, bool &masterPass, bool &reenforcedSeasuit, bool &electricity, bool &end, bool &robot, bool &elevator, bool &enemy, bool &gate)
 {
 		switch (position)
 		{
@@ -18,9 +18,11 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			{
 				if (pass)
 				{
-					 printf("You opened the door and went outisde\n"); 
-					 if (seaSuit){ position = 3; wantToSetPos = false; }
-					 else{ printf("You died drowned\nDead End\n"); end = true; }
+					 printf("Now you can go outisde\nHINT: You have to type: open door.\n"); 
+					 if (gate == true){
+						 if (seaSuit){ position = 3; wantToSetPos = false; }
+						 else{ printf("You died drowned\nDead End\n"); end = true; }
+					 }
 				}
 				else{ printf("You need a pass to open this door.\n"); }
 				textSouth = false; 

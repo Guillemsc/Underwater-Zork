@@ -44,14 +44,14 @@ void StartRooms(void)
 
 }
 
-bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, bool &textNorth, bool &textSouth, bool &textEast, bool &textWest, bool &printRoom, bool &pass, bool &lantern, bool &key, bool &seaSuit, bool &metalBar, bool &oxigenTank, bool &masterPass, bool &reenforcedSeasuit, bool &electricity, bool &robot, bool &elevator, bool &enemy)
+bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, bool &textNorth, bool &textSouth, bool &textEast, bool &textWest, bool &printRoom, bool &pass, bool &lantern, bool &key, bool &seaSuit, bool &metalBar, bool &oxigenTank, bool &masterPass, bool &reenforcedSeasuit, bool &electricity, bool &robot, bool &elevator, bool &enemy, bool &gate)
 {
 	bool end = false;
 
 //Print-------------
 	if (printRoom)
 	{
-		PrintPlaces(position, printRoom, wantToSetPos, textNorth, textSouth, textEast, textWest, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit, electricity, end, robot, elevator, enemy);
+		PrintPlaces(position, printRoom, wantToSetPos, textNorth, textSouth, textEast, textWest, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit, electricity, end, robot, elevator, enemy, gate);
 	}
 	
 //DeadEnd-----------
@@ -102,11 +102,25 @@ bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, 
 			PrintHelp();
 			break;
 		case 'l':
-			PrintPlaces(position, printRoom, wantToSetPos, textNorth, textSouth, textEast, textWest, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit, electricity, end, robot, elevator, enemy);
+			PrintPlaces(position, printRoom, wantToSetPos, textNorth, textSouth, textEast, textWest, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit, electricity, end, robot, elevator, enemy, gate);
 			break;
 		case 'q':
 			delete[] Rooms; //free Rooms class
 			return true;
+		case'o':
+			if (position == 0 || position == 3)
+			{
+				gate = true; printf("Door opened\n.");
+			}
+			else{ printf("You can't do this now.\n"); }
+			break;
+		case 'c':
+			if (position == 0 || position == 3)
+			{
+				gate = false; printf("Door closed\n.");
+			}
+			else{ printf("You can't do this now"); }
+			break;
 		default:
 			printf("\nI cant recognize this command.\n"); printRoom = false;
 			break;
@@ -140,6 +154,10 @@ char InputWords(char input[20])
 		return 'h';
 	if (!strcmp(input, "quit") || !strcmp(input, "q") || !strcmp(input, "end")) //quit
 		return 'q';
+	if (!strcmp(input, "open door") || !strcmp(input, "od")) //open door
+		return 'o';
+	if (!strcmp(input, "close door") || !strcmp(input, "cd")) //open door
+		return 'c';
 }
 
 

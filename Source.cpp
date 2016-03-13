@@ -40,6 +40,7 @@ int main()
 	bool robot = true; //true
 	bool elevator = false;
 	bool enemy = true;
+	bool gate = false;
 
 	StartRooms();
 
@@ -47,7 +48,7 @@ int main()
 
 	while (!end)
 	{
-		end = DoThings(input, printNum, position, wantToSetPos, textNorth, textSouth, textEast, textWest, printRoom, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit, electricity, robot, elevator, enemy);
+		end = DoThings(input, printNum, position, wantToSetPos, textNorth, textSouth, textEast, textWest, printRoom, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit, electricity, robot, elevator, enemy, gate);
 	}
 
 //FREE-----------------------------
