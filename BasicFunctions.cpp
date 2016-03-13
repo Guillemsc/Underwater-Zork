@@ -96,7 +96,7 @@ bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, 
 			for (int d = 0; d < 21; d++){ if (!(strcmp(Rooms[position].down, Rooms[d].name))){ position = d; printRoom = true; break; } }
 			break;
 		case 'i':
-			PrintObjects(position, pass);
+			PrintObjects(position, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit);
 			break;
 		case 'h':
 			PrintHelp();
@@ -129,7 +129,7 @@ char InputWords(char input[20])
 		return 'u';
 	if (!strcmp(input, "down") || !strcmp(input, "d") || !strcmp(input, "go down") || !strcmp(input, "go d")) //down
 		return 'd';
-	if (!strcmp(input, "inventary") || !strcmp(input, "i") || !strcmp(input, "open inventary")) //inventory
+	if (!strcmp(input, "inventory") || !strcmp(input, "i") || !strcmp(input, "open inventory")) //inventory
 		return 'i';
 	if (!strcmp(input, "look") || !strcmp(input, "l")) //look
 		return 'l';

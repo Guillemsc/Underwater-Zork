@@ -6,7 +6,7 @@
 bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, bool &textNorth, bool &textSouth, bool &textEast, bool &textWest, bool &printRoom, bool &pass, bool &lantern, bool &key, bool &seaSuit, bool &metalBar, bool &oxigenTank, bool &masterPass, bool &reenforcedSeasuit, bool &electricity, bool &robot, bool &elevator, bool &enemy);
 char InputWords(char input[15]);
 void PrintPlaces(int &position, bool &wantToSetPos, bool &printRoom, bool &textNorth, bool &textSouth, bool &textEast, bool &textWest, bool &pass, bool &lantern, bool &key, bool &seaSuit, bool &metalBar, bool &oxigenTank, bool &masterPass, bool &reenforcedSeasuit, bool &electricity, bool &end, bool &robot, bool &elevator, bool &enemy);
-void PrintObjects(int &position, bool key);
+void PrintObjects(int &position, bool pass, bool lantern, bool key, bool seaSuit, bool metalBar, bool oxigenTank, bool masterPass, bool reenforcedSeasuit);
 void PrintHelp(void);
 void StartRooms();
 

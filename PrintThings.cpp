@@ -3,12 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-
-
-
 void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textNorth, bool &textSouth, bool &textEast, bool &textWest, bool &pass, bool &lantern, bool &key, bool &seaSuit, bool &metalBar, bool &oxigenTank, bool &masterPass, bool &reenforcedSeasuit, bool &electricity, bool &end, bool &robot, bool &elevator, bool &enemy)
 {
-
 		switch (position)
 		{
 		case 0: //BODIES
@@ -26,7 +22,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 					 if (seaSuit){ position = 3; wantToSetPos = false; }
 					 else{ printf("You died drowned\nDead End\n"); end = true; }
 				}
-				else{ printf("You need a pass to open this door\n"); }
+				else{ printf("You need a pass to open this door.\n"); }
 				textSouth = false; 
 			}
 			else if (textEast) //bodies East
@@ -35,7 +31,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				textEast = false;
 			}
 			else{
-				printf("\nBODIES ROOM\n\nYou are sorrounded by beds full of people bodies connected\nto a wierd machines.\nYou have a door at your south.\nAn up and donw stairs at the right.\nBodies at your north.\n");
+				printf("\nBODIES ROOM\n\nYou are sorrounded by beds full of people bodies connected into a wierd machines.\nYou have a door at your south.\nAn up and donw stairs at the right.\nBodies at your north.\n");
 				printRoom = true; wantToSetPos = true;
 			}
 
@@ -43,7 +39,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 		case 1: //BODIES(UP)
 			if (textNorth) //bodies(up) North
 			{
-				printf("Ther's a text on the briefcase: 'normal passes'.Open it?(y/n): "); char r1[2];
+				printf("There's a text on the briefcase: 'normal passes'. Open it?(y/n): "); char r1[2];
 				scanf_s("%s", r1 , 2);
 				if (!(strcmp(r1, "y")))
 				{
@@ -80,13 +76,13 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 					scanf_s("%s", r2a, 2);
 					if (!(strcmp(r2a, "y"))){ key = true; printf("Tou take it.\n"); }
 				}
-				else{ "You already took the key"; }
+				else{ printf("You already took the key"); }
 				textNorth = false; 
 
 			}
 			else if (textSouth) //bodies(down) South
 			{
-				printf("This look like a suit to go under the water.\n It has an oxigen tank.\n It's in good conditions.\nDo you want to wear it?(y/n): "); char r2b[2];
+				printf("This look like a suit to go under the water.\nIt has an oxigen tank.\nIt's in good conditions.\nDo you want to wear it?(y/n): "); char r2b[2];
 				scanf_s("%s", r2b, 2);
 				if (!(strcmp(r2b, "y"))){ seaSuit = true; printf("Now you wear a seasuit and you can walk under the water.\n"); }
 				textSouth = false; 
@@ -517,13 +513,28 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 		}
 }
 
-void PrintObjects(int &position, bool pass)
+void PrintObjects(int &position, bool pass, bool lantern, bool key, bool seaSuit, bool metalBar, bool oxigenTank, bool masterPass, bool reenforcedSeasuit)
 {
+	
+	printf("\n--------------\n");
 	if (pass)
-		printf("Pass");
+		printf("-Pass\n");
+	if (lantern)
+		printf("-Lantern\n");
+	if (key)
+		printf("-Key\n");
+	if (seaSuit)
+		printf("-Sea Suit\n");
+	if (metalBar)
+		printf("-Metal Bar\n");
+	if (masterPass)
+		printf("-Master Pass\n");
+	if (reenforcedSeasuit)
+		printf("-Reenforced Seasuit\n");
+	printf("\n--------------\n");
 }
 
 void PrintHelp()
 {
-	printf("help");
+	printf("\n-------------------\nBasic Controls:\n- n, north, go north\n- s, south, go south\n- e, east, go east\n- w, west, go west\n- inventory\n- look\n- help\n- quit\n-------------------\n");
 }
