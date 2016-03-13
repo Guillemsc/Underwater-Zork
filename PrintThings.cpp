@@ -507,7 +507,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 					enemy = robot = oxigenTank = true;
 				}
 				else{ end = true; }
-			
+
 			break;
 		
 		}
