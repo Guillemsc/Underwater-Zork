@@ -107,6 +107,9 @@ bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, 
 		case 'q':
 			delete[] Rooms; //free Rooms class
 			return true;
+		default:
+			printf("\nI cant recognize this command.\n"); printRoom = false;
+			break;
 		}
 	}
 	//returns to continue playing
