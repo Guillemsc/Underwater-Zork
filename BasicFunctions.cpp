@@ -1,6 +1,4 @@
 #include "Head.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 #include <string.h>
 
@@ -59,69 +57,65 @@ bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, 
 	{
 		delete[] Rooms; //free Rooms class
 		return true;
-
 	}
 
-//Input-------------
 //Move--------------
 	if (wantToSetPos){
 		switch (InputWords(input)) //Unify Input
 		{
-		case 'n':
+		case 'n': //north
 			if (!(strcmp(Rooms[position].north, "E"))){ printf("You can't go there\n"); printRoom = false; }
 			if (!(strcmp(Rooms[position].north, "T"))){ textNorth = true; printRoom = true; }
 			for (int n = 0; n < 21; n++){ if (!(strcmp(Rooms[position].north, Rooms[n].name))){ position = n; printRoom = true; break; } }
 			break;
-		case 's':
+		case 's': //south
 			if (!(strcmp(Rooms[position].south, "E"))){ printf("You can't go there\n"); printRoom = false; }
 			if (!(strcmp(Rooms[position].south, "T"))){ textSouth = true;  printRoom = true; }
 			for (int s = 0; s < 21; s++){ if (!(strcmp(Rooms[position].south, Rooms[s].name))){ position = s; printRoom = true; break; } }
 			break;
-		case 'e':
+		case 'e': //east
 			if (!(strcmp(Rooms[position].east, "E"))){ printf("You can't go there\n"); printRoom = false; }
 			if (!(strcmp(Rooms[position].east, "T"))){ textEast = true; printRoom = true; }
 			for (int e = 0; e < 21; e++){ if (!(strcmp(Rooms[position].east, Rooms[e].name))){ position = e; printRoom = true; break; } }
 			break;
-		case 'w':
+		case 'w': //west
 			if (!(strcmp(Rooms[position].west, "E"))){ printf("You can't go there\n"); printRoom = false; }
 			if (!(strcmp(Rooms[position].west, "T"))){ textWest = true; printRoom = true; }
 			for (int w = 0; w < 21; w++){ if (!(strcmp(Rooms[position].west, Rooms[w].name))){ position = w; printRoom = true; break; } }
 			break;
-		case 'u':
+		case 'u': //up
 			if (!(strcmp(Rooms[position].up, "E"))){ printf("You can't go there\n"); printRoom = false; }
 			for (int u = 0; u < 21; u++){ if (!(strcmp(Rooms[position].up, Rooms[u].name))){ position = u; printRoom = true; break; } }
 			break;
-		case 'd':
+		case 'd': //down
 			if (!(strcmp(Rooms[position].down, "E"))){ printf("You can't go there\n"); printRoom = false; }
 			for (int d = 0; d < 21; d++){ if (!(strcmp(Rooms[position].down, Rooms[d].name))){ position = d; printRoom = true; break; } }
 			break;
-		case 'i':
+		case 'i': //inventory
 			PrintObjects(position, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit);
 			break;
-		case 'h':
+		case 'h': //help
 			PrintHelp();
 			break;
-		case 'l':
+		case 'l': //look
 			PrintPlaces(position, printRoom, wantToSetPos, textNorth, textSouth, textEast, textWest, pass, lantern, key, seaSuit, metalBar, oxigenTank, masterPass, reenforcedSeasuit, electricity, end, robot, elevator, enemy, gate);
 			break;
-		case 'q':
+		case 'q': //quit
 			delete[] Rooms; //free Rooms class
 			return true;
-		case'o':
-			if (position == 0 || position == 3)
-			{
-				gate = true; printf("Door opened\n.");
-			}
-			else{ printf("You can't do this now.\n"); }
+		case'o': //open door
+			if ((position == 0 || position == 3) && pass)
+			{gate = true; printf("Door opened.\n");}
+			else{ printf("You can't do this now.\n"); } 
+			printRoom = false;
 			break;
-		case 'c':
-			if (position == 0 || position == 3)
-			{
-				gate = false; printf("Door closed\n.");
-			}
+		case 'c': //close door
+			if (position == 0 || position == 3 && pass)
+			{gate = false; printf("Door closed.\n");}
 			else{ printf("You can't do this now"); }
+			printRoom = false;
 			break;
-		default:
+		default: //wrong command
 			printf("\nI cant recognize this command.\n"); printRoom = false;
 			break;
 		}
@@ -130,23 +124,24 @@ bool DoThings(char input[20], int &printNum, int &position, bool &wantToSetPos, 
 	return false;
 }
 
+//Input-------------
 char InputWords(char input[20])
 {
-	printf("> "); scanf_s("%s", input, 20);
+	printf("> "); scanf_s(" %s", input, 20);	printf("\n");
 	
-	if (!strcmp(input, "north") || !strcmp(input, "n") || !strcmp(input, "go north") || !strcmp(input, "go n")) //north
+	if (!strcmp(input, "north") || !strcmp(input, "n") || !strcmp(input, "gonorth") || !strcmp(input, "gon")) //north
 		return 'n';
-	if (!strcmp(input, "south") || !strcmp(input, "s") || !strcmp(input, "go south") || !strcmp(input, "go s")) //south
+	if (!strcmp(input, "south") || !strcmp(input, "s") || !strcmp(input, "gosouth") || !strcmp(input, "gos")) //south
 		return 's';
-	if (!strcmp(input, "east") || !strcmp(input, "e") || !strcmp(input, "go east") || !strcmp(input, "go e")) //east
+	if (!strcmp(input, "east") || !strcmp(input, "e") || !strcmp(input, "goeast") || !strcmp(input, "goe")) //east
 		return 'e';
-	if (!strcmp(input, "west") || !strcmp(input, "w") || !strcmp(input, "go west") || !strcmp(input, "go w")) //west
+	if (!strcmp(input, "west") || !strcmp(input, "w") || !strcmp(input, "gowest") || !strcmp(input, "gow")) //west
 		return 'w';
-	if (!strcmp(input, "up") || !strcmp(input, "u") || !strcmp(input, "go up") || !strcmp(input, "go u")) //up
+	if (!strcmp(input, "up") || !strcmp(input, "u") || !strcmp(input, "goup") || !strcmp(input, "gou")) //up
 		return 'u';
-	if (!strcmp(input, "down") || !strcmp(input, "d") || !strcmp(input, "go down") || !strcmp(input, "go d")) //down
+	if (!strcmp(input, "down") || !strcmp(input, "d") || !strcmp(input, "godown") || !strcmp(input, "god")) //down
 		return 'd';
-	if (!strcmp(input, "inventory") || !strcmp(input, "i") || !strcmp(input, "open inventory")) //inventory
+	if (!strcmp(input, "inventory") || !strcmp(input, "i") || !strcmp(input, "openinventory")) //inventory
 		return 'i';
 	if (!strcmp(input, "look") || !strcmp(input, "l")) //look
 		return 'l';

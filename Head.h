@@ -12,6 +12,7 @@ void StartRooms();
 
 class Room
 {
+
 public:
 	char name[20];
 	char north[20];

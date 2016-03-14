@@ -1,5 +1,4 @@
 #include "Head.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -29,11 +28,11 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			}
 			else if (textEast) //bodies East
 			{
-				printf("There is an up and down stair right there.\n");
+				printf("There are an up and down stair right there.\n");
 				textEast = false;
 			}
 			else{
-				printf("\nBODIES ROOM\n\nYou are sorrounded by beds full of people bodies connected into a wierd machines.\nYou have a door at your south.\nAn up and donw stairs at the right.\nBodies at your north.\n");
+				printf("\nBODIES ROOM\n\nYou are sorrounded by beds full of people bodies connected\ninto a wierd machines.\n-You have a door at your south.\n-Up and down stairs at the right.\n-Bodies at your north.\n");
 				printRoom = true; wantToSetPos = true;
 			}
 
@@ -57,16 +56,16 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			else if (textEast) //bodies(up) East
 			{
 				printf("There is a down stair right there.\n");
-				textWest = false;
+				textEast = false;
 			}
 			else if (textWest) //bodies(up) West
 			{
-				if (electricity){ printf("The computer is opened"); }
+				if (electricity){ printf("The computer is on now.\nThere's only a .txt file on the dekstop named 'emergency'.\nYou open it.\n-------------\nHello there,\nMy name is Dra.Annie and I was the one in charge of \nthis place.\nIf you are reading this you probably woke up,\nand now you have a large path to do.\nI'm sure you have a lot of answers about this place, but\nI don't have time to explain them.\nI will be fast: to go out of here you need to go to\nthe emergency deep station, there's a train that will take\nyou out of here.\nGood look..\n...whoever you are.\n-------------\n"); }
 				else{ printf("There's a computer right there.\nYou try to switch on it, but ther's no electicity.\n"); }
-				textEast = false;
+				textWest = false;
 			}
 			else{
-				printf("\nBODIES ROOM(UP)\nYou are on the top floor.\nYou see a briefcase on a table at the north.\nA computre at the west.\nStairs at the east.\n");
+				printf("\nBODIES ROOM(UP)\nYou are on the top floor.\n-You see a briefcase on a table at the north.\n-A computer at the west.\n-Stairs at the east.\n");
 				 wantToSetPos = true;
 			}
 			break;
@@ -100,25 +99,25 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				textEast = false; 
 			}
 			else{
-				printf("\nBODIES ROOM(DOWN)\nThere is a key hanging on a nail at the north.\nSome wierd seasuit at your south.\nUp stairs at he right with something below.\n");
+				printf("\nBODIES ROOM(DOWN)\nYou are on the bottom floor.\n-There is a key hanging on a nail at the north.\n-A wierd seasuit at your south.\nUp stairs at the right. There is with something below.\n");
 			}
 			break;
 		case 3: //ELEVATOR
 				wantToSetPos = true;
-				printf("\nELEVATOR\nThere's a big building at the east.\nThere's a tunnel at the south.\n");
+				printf("\nELEVATOR\nIt's a big metal elevator that goes down\n-There's a big building at the east.\n-There's a tunnel at the south.\n");
 				printf("Do you want to use the elvator to go to the deepStation?:(y/n)"); char r3[2];
 				scanf_s("%s", r3, 2);
 				if (!(strcmp(r3, "y")))
 				{
 					if (reenforcedSeasuit && electricity && elevator)
 					{
-						printf("The elvator is working.\nYou started moving.\nYou are scared.\nYou are going to the deepness.\n...\nAfter some minutes the elevator stops.\n");
+						printf("\nThe elvator is working...\nYou started moving.\nYou are scared.\nYou are going to the deepness.\n...\nAfter some minutes the elevator stops.\n");
 						position = 16;
 						wantToSetPos = false;
 					}
-					else if(!electricity){ printf("It's not working, you need electricity.\n"); }
-					else if (!reenforcedSeasuit){ printf("You need a reenforced seasuit to go tho the deepness.\n"); }
-					else if (!elevator){ printf("You need to activate the elevator.\n"); }
+					else if(!electricity){ printf(" It's not working, you need electricity.\n"); }
+					else if (!reenforcedSeasuit){ printf(" You need a reenforced seasuit to go tho the deepness.\n"); }
+					else if (!elevator){ printf(" You need to activate the elevator.\n"); }
 				}
 			break;
 		case 4: //ENTRANCE S
@@ -128,28 +127,27 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				textNorth = false; 
 			}
 			else{
-				printf("\nENTRANCE(SOUTH)\n");
 				if (robot)
 				{
-					printf("There is a door to enter into the building.\nYou try to open it.\nIt's broken.\n");
-					printf("Suddenly you hear a sound.\nYou look behind and it's a small robot that swims in circles.\nThe robot repeats always the same prhase:\nI love swiming throuht the hair\nYou think its wierd.\nWhat you want to do?: \n(h -> ask for help. p ->punch him i -> ingore )"); 
+					printf("\nENTRANCE(SOUTH)\nThere is a door to enter into the building.\nYou try to open it.\nIt's broken.\n");
+					printf("Suddenly you hear a sound.\nYou look behind and it's a small robot that swims in circles.\nThe robot repeats always the same:\nI love swiming throuht the hair.\nYou think its wierd.\nWhat you want to do?: \n(h -> ask for help | p ->punch him | i -> ingore )"); 
 					char r4[2];
 					scanf_s("%s", r4, 2);
 					if (!(strcmp(r4, "h")))
 					{
-						printf(">Can you help me enter the building?\n-I love to swim through the hair.\n>...\n>You can touch my hair if you want.\nHe touch you hair.\nHe took you to a stairs at the east.\nHe open a hole on the building with his laser.\nThe robot leaves swiming.\n");
+						printf("\n>Can you help me enter the building?\n-I love to swim through the hair.\n>...\n>You can touch my hair if you want.\nHe touch you hair.\nHe took you to a stairs at the east.\nHe open a hole on the building with his laser.\nThe robot leaves swiming.\n");
 						position = 5;
 						wantToSetPos = false;
 						robot = false;
 					}
-					else if (!(strcmp(r4, "h")))
+					else if (!(strcmp(r4, "p")))
 					{
-						printf("You hit him on the face.\nThe robot is made of metal.\n Your seasuit brokes on the hand and the water enters.\n You die drowned\nDEAD END");
+						printf("\nYou punch him on the face.\nThe robot is made of metal.\nYour seasuit brokes because of that and the water enters.\nYou die drowned\nDEAD END"); getchar();
 						end = true;
 					}
-					else if (!(strcmp(r4, "i"))){ printf("You ignore him.\nHe feels that that's rude.\nHe destroy you.\nDEAD END"); end = true; }
+					else if (!(strcmp(r4, "i"))){ printf("\nYou ignore him.\nHe feels that that's rude.\nHe destroy you.\nDEAD END"); getchar(); end = true; }
 				}
-				else{printf("Ther are stairs at the south.\nA door at the north\nA stairs at the west.\nThe elevator at the west");}
+				else{printf("\nENTRANCE(SOUTH)\n-There are stairs at the south.\n-A door at the north\n-Stairs at the east.\n-The elevator at the west.\n");}
 			}
 			break;
 		case 5: //STAIRS
@@ -158,16 +156,16 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				if (masterPass)
 				{
 					printf("Now you can open this room.\n");
-					position = 10;
+					position = 9;
 					wantToSetPos = false;
 				}
 				else
 				{
-					printf("You are into the building.\nThere are two rooms.\nYou try top open the first one but the pass needs to be different.\nYou open the second one.\n Do you want to enter?(y/n): "); char r5[2];
+					printf("You are into the building.\nThere are two rooms.\nYou try to open the first one but the pass needs to be different.\nYou open the second one.\nDo you want to enter?(y/n): "); char r5[2];
 					scanf_s("%s", r5, 2);
 					if (!(strcmp(r5, "y")))
 					{
-						printf("You enter the room 2\n");
+						printf("You enter the Room 2.\n");
 						position = 8;
 						wantToSetPos = false;
 					}
@@ -176,24 +174,24 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			}
 			else{
 				wantToSetPos = true;
-				printf("\nSTAIRS\n You enter the building.\nThe north of the building is at your front.\nYou can enter the building at your west.\n");
+				printf("\nSTAIRS\nYou enter the building.\n-The north of the building is at your front.\n-You can enter the building at your west.\n-You can go to the entrance on the south.\n");
 			}
 			break;
 		case 6: //ENTRANCE N
-			printf("Building(North)\nThe stairs are at the east.\n The building(west) is at the west");
+			printf("Building(North)\n-The stairs are at the east.\n-The building(west) is at the west.");
 			break;
 		case 7: //ENTRANCE W
-			printf("Building(West)\nThe building(north) at the north.\nThe entrance at the south.\n");
+			printf("Building(West)\n-The building(north) at the north.\n-The entrance at the south.\n");
 			break;
 		case 8: //ROOM 2
 			wantToSetPos = true;
-				printf("\nBUILDING(ROOM 2)\nYou fall into a hole\n");
+				printf("\nBUILDING(ROOM 2)\nYou fall into a hole that was on the ground!!\n");
 				position = 11;
 			wantToSetPos = false;
 			
 			break;
 		case 9: //ROOM 1
-				printf("\nBUILDING(ROOM 1)\nYou have the stairs at the east.\n You have a room at the west.\n");
+				printf("\nBUILDING(ROOM 1)\n-You have the stairs at the east.\n-You have a room at the west.\n");
 			
 			break;
 		case 10: //LIGHT ROOM
@@ -201,7 +199,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			if (textNorth)
 			{
 				if (!metalBar){
-					printf("Ther's a metal bar right threre, do you want to take it?(y/n): "); char r10[2];
+					printf("There is a metal bar right threre, do you want to take it?(y/n): "); char r10[2];
 					if (oxigenTank = false)
 					{
 						printf("You replaced you oxigen tank.\n"); oxigenTank = true;
@@ -221,18 +219,19 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				textWest = false; 
 			}
 			else{
-				printf("\nLIGHT ROOM\nThere's the room 1 at the east.\nAt your left you have a control panel.\nThere's a metal bar and some oxigent tanks an your front.\n");
+				printf("\nLIGHT ROOM\nIt's a big room with some switches and electircity warnings.\n\n-There's the room 1 at the east.\n-At your left you have a control panel.\n-There's a metal bar and some oxigent tanks an your front.\n");
 			}
 			break;
 		case 11: //HOLE ROOM
 			wantToSetPos = true;
-				printf("\nHOLE ROOM\nThere's a passage to the south.\n");
+				printf("\nHOLE ROOM\nIt's the room below the room 2.\n-There's a passage to the south.\n");
 				if (lantern){
-					printf("It's very dark\n you turn on the lantern.\nYou see a card\nDo you want to take it?(y/n): "); char r11[2];
+					printf("It's very dark.\nyou turn on the lantern.\nYou see a card at the ground.\nDo you want to take it?(y/n): "); char r11[2];
 					scanf_s("%s", r11, 2);
 					if (!(strcmp(r11, "y")))
 					{
 						masterPass = true;
+						printf("You take it.\n");
 					}
 				}
 			
@@ -243,7 +242,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			{
 				printf("You feel like something is watching you.\n");
 				if (lantern){
-					printf("Wich path do you want to take( a -> passage 2  b -> control room)"); char r12[2];
+					printf("Wich path do you want to take?( a -> passage 2 | b -> control room):"); char r12[2];
 					scanf_s("%s", r12, 2);
 					if (!(strcmp(r12, "a")))
 					{
@@ -258,18 +257,18 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 						wantToSetPos = false;
 					}
 				}
-				else{ printf("You walk throught the dark passage.\n You can't see anything.\nYou feel someone at your back and suddenly you are hit\non the head by something.\nDEAD END"); end = true; }
+				else{ printf("You walk throught the dark passage.\nYou can't see anything.\nYou feel someone at your back and suddenly you are hit\non the head by something.\nDEAD END"); getchar(); end = true; }
 				textSouth = false;
 			}
 			else{
-				printf("\nPASSAGE 1\nThe hole room is at the north\nThere are two paths at the south.\n");
+				printf("\nPASSAGE 1\nIt's a long dark passage.\n\n-The hole room is at the north.\n-There are two paths at the south.\n");
 			}
 			break;
 		case 13: //PASSAGE 2
 			wantToSetPos = true;
 			if (textEast)
 			{
-				printf("Wich path do you want to take( a -> passage 1  b -> control room)"); char r13[2];
+				printf("Wich path do you want to take?( a -> passage 1 | b -> control room):"); char r13[2];
 				scanf_s("%s", r13, 2);
 				if (!(strcmp(r13, "a")))
 				{
@@ -296,14 +295,14 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				textWest = false; 
 			}
 			else{
-				printf("\nPASSAGE 2\nYou can go outside to the elevator at the west.\n There are two paths at the east.\n");
+				printf("\nPASSAGE 2\n-You can go outside to the elevator at the west.\n-There are two paths at the east.\n");
 			}
 			break;
 		case 14: //CONTROL ROOM
 			wantToSetPos = true;
 			if (textNorth)
 			{
-				printf("Wich path do you want to take( a -> passage 1  b -> passage 2)"); char r14a[2];
+				printf("Wich path do you want to take?( a -> passage 1 | b -> passage 2):"); char r14a[2];
 				scanf_s("%s", r14a, 2);
 				if (!(strcmp(r14a, "a")))
 				{
@@ -332,14 +331,14 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				textWest = false; 
 			}
 			else{
-				printf("\nCONTROL ROOM\nThere's another room at the south.There are two paths at the north.\n");
+				printf("\nCONTROL ROOM\nIt's full of shining lights and wierd buttons.\n-There is a panel at the west.\n-There's another room at the south\n-There are two paths at the north.\n");
 			}
 			break;
 		case 15: //DEEP PREPARATION
 		
 			if (textSouth)
 			{
-				printf("Those are a different seasuits that mine.\nThere's a text on the top: 'Reenforced Seasuits, for going deeper'.\nDo you want to change it by the current?(y/n): \n"); char r15[2];
+				printf("Those are a different seasuits that mine.\nThere's a text on the top: 'Reenforced Seasuits: for going deeper'.\nDo you want to change it by the current?(y/n): "); char r15[2];
 				scanf_s("%s", r15, 2);
 				if (!(strcmp(r15, "y")))
 				{
@@ -349,7 +348,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			}
 			
 			else{
-				printf("\nDEEP PREPARATION\nYou have the control room at the north.\nYou have a path to the Elevator to the west.\nThere's a lot of cases with seasuits ath the south.\n");
+				printf("\nDEEP PREPARATION\nIt's a small room with recipents full of seasuits.\n-You have the control room at the north.\n-You have a path to the Elevator to the west.\n-There's a lot of cases with seasuits ath the south.\n");
 			}
 			break;
 		case 16: //DEEP STATION
@@ -367,7 +366,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			}
 			else
 			{
-				printf("\nDEEP STATION\n\It's even more dark down here.\nYou have a path to the south.\nYou can go up with the elvator at the north.\n");
+				printf("\nDEEP STATION\n\It's even more dark down here.\n-You have a path to the south.\n-You can go up with the elvator at the north.\n");
 			}
 			
 			break;
@@ -375,7 +374,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			wantToSetPos = true;
 			if (textSouth)
 			{
-				printf("Wich path do you want to take( a -> look out  b -> path 2)"); char r17[2];
+				printf("Wich path do you want to take?( a -> look out | b -> path 2)"); char r17[2];
 				scanf_s("%s", r17, 2);
 				if (!(strcmp(r17, "a")))
 				{
@@ -392,14 +391,14 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 				textSouth = false; 
 			}
 			else{
-				printf("\nPATH 1\nYou have the deep station at the north.\n At the south you have two paths.\n");
+				printf("\nPATH 1\nIt's a long path illuminated by lampposts.\n-You have the deep station at the north.\n-At the south you have two paths.\n");
 			}
 			break;
 		case 18: //LOOK OUT
 			wantToSetPos = true;
 			if (textEast)
 			{
-				printf("Wich path do you want to take( a -> path 1  b -> path 2)"); char r18[2];
+				printf("Wich path do you want to take( a -> path 1 | b -> path 2)"); char r18[2];
 				scanf_s("%s", r18, 2);
 				if (!(strcmp(r18, "a")))
 				{
@@ -417,18 +416,18 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			}
 			else if (textWest)
 			{
-				printf("It's a small look out to admire a big planure on the see.\nYou think its beautufull.\nSomething it's moving behind you.\n");
+				printf("It's a small look out to admire a big planure on the see.\nYou think its beautufull.\n-Something it's moving behind you.\n");
 				textWest = false; 
 			}
 			else{
-				printf("\nLOOK OUT.\nYou can look at the sea at the left.\nAt the east you have two paths.\n");
+				printf("\nLOOK OUT.\nSmall elevation in front of a precipice.\n-You can look at the sea at the left.\n-At the east you have two paths.\n");
 			}
 			break;
 		case 19: //PATH 2
 			wantToSetPos = true;
 			if (textNorth)
 			{
-				printf("Wich path do you want to take( a -> look out  b -> path 1)"); char r18[2];
+				printf("Wich path do you want to take( a -> look out | b -> path 1)"); char r18[2];
 				scanf_s("%s", r18, 2);
 				if (!(strcmp(r18, "a")))
 				{
@@ -463,7 +462,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 						}
 						else
 						{ 
-							printf("Someone hit you in the head.\n You fall on the ground.\n");
+							printf("Someone hit you in the head.\nYou fall on the ground.\n");
 							if (metalBar)
 							{
 								printf("You wake up and with your metal bar you stop his next hit.\nThen with all your force you hit him on the oxigen tank.\nHe dies.\n");
@@ -475,7 +474,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 								}
 
 							}
-							else{ printf("He hit you again in the helmet.\nThe blood starts to appear.\nDEAD END.\n"); end = true; }
+							else{ printf("You have nothing to defend yourself.\nHe hit you again in the helmet.\nThe blood starts to appear.\nDEAD END.\n"); getchar(); end = true; }
 						}i = 0;
 						i--;
 					}
@@ -491,7 +490,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			}
 			
 			else{
-				printf("\nPATH 2.\nYou feel you are close to your destiny.\nYou can return to the path 1 or at the look out at the north.\n You can continue walking at the south.\n");
+				printf("\nPATH 2.\nYou feel you are close to your destiny.\n-You can return to the path 1 or at the look out at the north.\n-You can continue walking at the south.\n");
 			}
 			break;
 		case 20: //EMERGENCY SCAPE
@@ -499,7 +498,7 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 			
 				printf("\nEMERGENCY SCAPE\nAfter all the adventure, you finally made it.\nYou are filled with determination.\nYou go up the train.\nYou press the emergency button.\nThe train starts moving.\nYou are very happy.\nA warning it's shown at the computer.\nThe train explodes.\nYOU WIN CONGRATULATIONS\n\nBy Guillem Sunyer.\n");
 				getchar();
-				printf("Do you want to play again?(y/n)"); char r20[2];
+				printf("-Do you want to play again?(y/n)"); char r20[2];
 				scanf_s("%s", r20, 2);
 				if (!(strcmp(r20, "y")))
 				{
@@ -509,15 +508,12 @@ void PrintPlaces(int &position, bool &printRoom, bool &wantToSetPos, bool &textN
 					enemy = robot = oxigenTank = true;
 				}
 				else{ end = true; }
-
 			break;
-		
 		}
 }
 
 void PrintObjects(int &position, bool pass, bool lantern, bool key, bool seaSuit, bool metalBar, bool oxigenTank, bool masterPass, bool reenforcedSeasuit)
-{
-	
+{	
 	printf("\n--------------\n");
 	if (pass)
 		printf("-Pass\n");
@@ -538,5 +534,5 @@ void PrintObjects(int &position, bool pass, bool lantern, bool key, bool seaSuit
 
 void PrintHelp()
 {
-	printf("\n-------------------\nBasic Controls:\n- n, north, go north\n- s, south, go south\n- e, east, go east\n- w, west, go west\n- inventory\n- look\n- help\n- quit\n-------------------\n");
+	printf("\n-------------------\nBasic Controls:\n- n, north, gonorth\n- s, south, gosouth\n- e, east, goeast\n- opendoor\n- closedoor\n- w, west, gowest\n- inventory\n- look\n- help\n- quit\n-------------------\n");
 }
