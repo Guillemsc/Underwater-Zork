@@ -25,10 +25,10 @@ int main()
 	int position = 0; //current position
 
 	//inventory
-	bool pass = true;
-	bool lantern = true;
+	bool pass = false;
+	bool lantern = false;
 	bool key = false;
-	bool seaSuit = true;
+	bool seaSuit = false;
 	bool metalBar = false;
 	bool oxigenTank = true; //true
 	bool masterPass = false;
