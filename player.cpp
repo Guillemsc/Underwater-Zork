@@ -601,3 +601,11 @@ void Player::unequip(p2vector<Player*> &player, p2vector<Item*> &items, p2String
 	}
 	player[0]->want_to_look = false;
 }
+
+void Player::help(p2vector<Player*> player)
+{
+	printf("<<<<HELP>>>>\n\n");
+	printf("Basic commands:\n\n-(north/south/east/west) or (go north/go south...) or (n/s..)\n-look\n-take 'object'\n-drop 'object'\n-use 'object'\n-equip 'object'\n-open 'object'\n-put 'object' inside 'object'\n-take 'object' from 'object\n-open door\n-close door\n-inventory\n-stats\n-quit");
+	printf("\n");
+	player[0]->want_to_look = false;
+}

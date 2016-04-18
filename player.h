@@ -36,6 +36,7 @@ public:
 
 	void inventory(p2vector<Player*> &player, p2vector<Item*> &items, p2vector<Box*> &boxes);
 	void stats(p2vector<Player*> player);
+	void help(p2vector<Player*> player);
 
 	void take_object(p2vector<Player*> &player, p2vector<Item*> &items, p2vector<Exit*> &exits, p2String item_name, p2vector<Box*> &boxes);
 	void drop_object(p2vector<Player*> &player, p2vector<Item*> &items, p2vector<Exit*> &exits, p2String item_name, p2vector<Box*> &boxes);

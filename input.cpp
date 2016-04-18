@@ -163,6 +163,10 @@ void Inputs(p2vector<Player*> &player, p2String a1, p2String a2, p2String a3, p2
 		{
 			player[0]->stats(player);
 		}
+		else if (Compare(a1, "help") || Compare(a1, "h"))
+		{
+			player[0]->help(player);
+		}
 		else{ printf("I can't understand this command.\n"); }
 		break;
 	case 2:
@@ -265,7 +269,12 @@ void Inputs(p2vector<Player*> &player, p2String a1, p2String a2, p2String a3, p2
 					}
 					else{ printf("The elevator is turned off"); }
 				}
+				else if (player[0]->get_position() == 17)
+				{
+					player[0]->set_position(3); player[0]->want_to_look = true; player[0]->want_to_input = false;
+				}
 				else{ printf("You can't do that.\n"); }
+
 			}
 			else if(Compare(a2, "train"))
 			{
@@ -357,6 +366,16 @@ bool Compare(p2String a, p2String b)
 
 void Check(p2vector<Player*> &player, p2vector<Room*> &rooms, p2vector<Exit*> &exits, p2vector<Item*> &items, p2vector<Box*> &boxes, p2vector<Enemy*> enemies)
 {
+	//doors
+	if (exits[28]->opened == true)
+	{
+		exits[7]->opened = true;
+	}
+	if (exits[33]->opened == true)
+	{
+		exits[8]->opened = true;
+	}
+
 	//fast movement
 	if (player[0]->get_position() == 10)
 	{

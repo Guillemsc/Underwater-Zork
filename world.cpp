@@ -119,9 +119,11 @@ World::World()
 	// First text
 	printf("Welcome to the UNDERWATER ZORK, you are going to start a new adventure.\nIf you need help with the commands just type help on the commands input.\n");
 	printf("------------------------------------------------------------------------\n\n");
-	printf("Suddenly you wake up.\n"); getchar(); 
-	printf("You look arround\n"); getchar();
-	printf("You don't know where you are.\n"); getchar();
+	printf("Suddenly you wake up.   "); printf("(press intro to continue)\n"); getchar();
+	printf("You look arround.\n"); getchar();
+	printf("You look throught a window at the left and you see water and fishes.\n"); getchar();
+	printf("You are underwater!\n"); getchar();
+	printf("You don't know what place is this.\n"); getchar();
 	printf("There is a screen at your bed that prints: energy failure.\n"); getchar();
 	printf("You need to know what's happening.\n"); getchar();
 }  
