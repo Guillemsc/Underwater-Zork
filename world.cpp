@@ -92,7 +92,7 @@ World::World()
 	Exit* building_lightsroom = new Exit(lightsroom, room1, "east", NULL, true); exits.push_back(building_lightsroom); //27
 
 	// Tunels--
-	Exit* hole_room = new Exit(holeroom, passage1, "south", NULL, false); exits.push_back(hole_room); //28
+	Exit* hole_room = new Exit(holeroom, passage1, "south", NULL, true); exits.push_back(hole_room); //28
 	Exit* passage2_west = new Exit(passage2, elevator, "west", masterpass, false); exits.push_back(passage2_west); //29
 	Exit* passage1_north = new Exit(passage1, holeroom, "north", NULL, true); exits.push_back(passage1_north); //30
 	Exit* passage1_west = new Exit(passage1, passage2, "west", NULL, true); exits.push_back(passage1_west); //31
@@ -117,13 +117,13 @@ World::World()
 	Exit* escape_room = new Exit(escaperoom, path2, "north", NULL, true); exits.push_back(escape_room); //45
 
 	// First text
-	/*printf("Welcome to the UNDERWATER ZORK, you are going to start a new adventure.\nIf you need help with the commands just type help on the commands input.\n");
+	printf("Welcome to the UNDERWATER ZORK, you are going to start a new adventure.\nIf you need help with the commands just type help on the commands input.\n");
 	printf("------------------------------------------------------------------------\n\n");
 	printf("Suddenly you wake up.\n"); getchar(); 
 	printf("You look arround\n"); getchar();
 	printf("You don't know where you are.\n"); getchar();
 	printf("There is a screen at your bed that prints: energy failure.\n"); getchar();
-	printf("You need to know what's happening.\n"); getchar();*/
+	printf("You need to know what's happening.\n"); getchar();
 }  
 
 World::~World()
