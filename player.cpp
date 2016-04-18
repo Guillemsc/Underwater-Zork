@@ -142,16 +142,18 @@ void Player::take_object(p2vector<Player*> &player, p2vector<Item*> &items, p2ve
 					{
 						items[i]->on_player = true;
 						printf("You have taken: %s.\n", item_name);
-						player[0]->want_to_look = false;
 						box = false;
 						break;
 					}
 					else
-					{printf("You can't do this.\n"); break;}
+					{
+						printf("You can't do this.\n"); box = false; break;
+					}
 				}
-				else{printf("You already have this item.\n"); player[0]->want_to_look = false; break;}
+				else if (items[i]->can_interact == false){ printf("You can't do that.\n"); box = false; break; }
+				else{ printf("You already have this item.\n"); box = false; break; }
 			}
-			else{ printf("There is not a %s in this room.\n", item_name); }
+			else{ printf("There is not a %s in this room.\n", item_name); box = false; break; }
 		}
 	}
 	int b = 0;
@@ -172,14 +174,13 @@ void Player::take_object(p2vector<Player*> &player, p2vector<Item*> &items, p2ve
 							if (boxes[b]->object_inside != NULL)
 								boxes[b]->object_inside->on_player = true;
 							printf("You have taken: %s.\n", item_name);
-							player[0]->want_to_look = false;
 							break;
 						}
 						else{printf("You can't do this.\n"); break;}
 					}
-					else{printf("You already have this item.\n");player[0]->want_to_look = false;break;}
+					else{printf("You already have this item.\n"); break;}
 				}
-				else{ printf("There is not a %s in this room.\n", item_name); }
+				else{ printf("There is not a %s in this room.\n", item_name); break; }
 			}
 		}
 	}
@@ -219,11 +220,11 @@ void Player::drop_object(p2vector<Player*> &player, p2vector<Item*> &items, p2ve
 						box = false;
 						break;
 					}
-					else{printf("You can't do this.\n"); break;}
+					else{ printf("You can't do this.\n"); box = false; break; }
 				}
-				else{printf("You don't have this item.\n"); break;}
+				else{ printf("You don't have this item.\n"); box = false; break; }
 			}
-			else{ printf("There is not a %s in this room.\n", item_name); }
+			else{ printf("There is not a %s in this room.\n", item_name); box = false; break; }
 		}
 	}
 	int b = 0;
