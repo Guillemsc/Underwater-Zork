@@ -169,6 +169,8 @@ void Player::take_object(p2vector<Player*> &player, p2vector<Item*> &items, p2ve
 						if (boxes[b]->can_interact == true)
 						{
 							boxes[b]->on_player = true;
+							if (boxes[b]->object_inside != NULL)
+								boxes[b]->object_inside->on_player = true;
 							printf("You have taken: %s.\n", item_name);
 							player[0]->want_to_look = false;
 							break;
@@ -234,6 +236,9 @@ void Player::drop_object(p2vector<Player*> &player, p2vector<Item*> &items, p2ve
 					{
 						if (boxes[b]->can_interact == true)
 						{
+							if (boxes[b]->object_inside != NULL)
+								boxes[b]->object_inside->on_player = false;
+
 							boxes[b]->on_player = false;
 							printf("You have droped: %s.\n", item_name);
 							boxes[b]->set_position(player[0]->get_position());
