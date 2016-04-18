@@ -126,7 +126,7 @@ void Player::look(p2vector<Room*> &rooms, p2vector<Player*> &player, p2vector<Ex
 
 void Player::take_object(p2vector<Player*> &player, p2vector<Item*> &items, p2vector<Exit*> &exits, p2String item_name, p2vector<Box*> &boxes)
 {
-	int i;
+	int i = 0;
 	bool box = true;
 
 	for (i = 0; i < items.get_things(); i++)
@@ -184,11 +184,15 @@ void Player::take_object(p2vector<Player*> &player, p2vector<Item*> &items, p2ve
 		}
 	}
 
-		if (box == false)
-			if (i == items.get_things()){ printf("I don't know what '%s' is.\n", item_name); }
+	if (box == false)
+	{
+		if (i == items.get_things()){ printf("I don't know what '%s' is.\n", item_name); }
+	}
 		
-		else
-			if (b == boxes.get_things()){printf("I don't know what '%s' is.\n", item_name);}
+	else
+	{
+		if (b == boxes.get_things()){printf("I don't know what '%s' is.\n", item_name);}
+	}
 
 			player[0]->want_to_look = false;
 }
@@ -252,11 +256,15 @@ void Player::drop_object(p2vector<Player*> &player, p2vector<Item*> &items, p2ve
 			}
 		}
 	}
-		if (box == false)
+	if (box == false)
+	{
 		if (i == items.get_things()){ printf("I don't know what '%s' is.\n", item_name); }
+	}
 
-		else
+	else
+	{
 		if (b == boxes.get_things()){ printf("I don't know what '%s' is.\n", item_name); }
+	}
 
 		player[0]->want_to_look = false;
 }

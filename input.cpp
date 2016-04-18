@@ -234,11 +234,14 @@ void Inputs(p2vector<Player*> &player, p2String a1, p2String a2, p2String a3, p2
 					{
 						if (Compare(items[i]->get_name(), "tank"))
 						{
-							printf("Good!, you found an oxigent tank.\nNow you can return to finally escape from this place.\n");
-							items[i]->on_player = true;
-							items[i]->can_interact = false;
-							player[0]->broken_tank = false;
-							break;
+							if (items[i]->can_interact == true)
+							{
+								printf("Good!, you found an oxigent tank.\nNow you can return to finally escape from this place.\n");
+								items[i]->on_player = true;
+								items[i]->can_interact = false;
+								player[0]->broken_tank = false;
+								break;
+							}
 						}
 					}
 				}

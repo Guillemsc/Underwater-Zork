@@ -19,7 +19,7 @@ World::World()
 
 	// Items
 	Item* key = new Item("key", "There is a KEY hanging on the wall", 2, NULL, false, true, false); items.push_back(key); //0
-	Item* pass = new Item("pass", "There is something on the BOX", 1, NULL, false, false, false); items.push_back(pass); //1
+	Item* pass = new Item("pass", "There is a PASS inside the BOX", 1, NULL, false, false, false); items.push_back(pass); //1
 	Item* lantern = new Item("lantern", "There is a LANTERN on the ground near the stairs", 0, NULL, true, true, false); items.push_back(lantern); //2
 	Item* seasuit = new Item("seasuit", "There is a SEASUIT placed on a cylinder", 2, NULL, false, true, true);	items.push_back(seasuit); //3
 	Item* metalbar = new Item("bar", "There is a BAR made of metall on the floor", 11, NULL, false, true, true); items.push_back(metalbar); //4
