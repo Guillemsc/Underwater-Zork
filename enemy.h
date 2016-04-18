@@ -9,7 +9,7 @@ class Enemy : public Entity
 {
 private:
 	int position;
-	int health;
+	int health = 100;
 public:
 	Enemy(p2String name, p2String description, Entity* other, int _position);
 	~Enemy();

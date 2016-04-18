@@ -15,7 +15,7 @@ World::World()
 	Player* player = new Player("Hero", "You don't know who you are", NULL, 0); players.push_back(player);
 
 	//Enemies
-	Enemy* crazy = new Enemy("CrazyMan", "Crazy man that also woke up as you.\n", NULL, 17); enemies.push_back(crazy);
+	Enemy* crazy = new Enemy("CrazyMan", "Crazy man that also woke up as you.\n", NULL, 19); enemies.push_back(crazy);
 
 	// Items
 	Item* key = new Item("key", "There is a KEY hanging on the wall", 2, NULL, false, true, false); items.push_back(key); //0
@@ -25,7 +25,7 @@ World::World()
 	Item* metalbar = new Item("bar", "There is a BAR made of metall on the floor", 11, NULL, false, true, true); items.push_back(metalbar); //4
 	Item* masterpass = new Item("masterpass", "There is a tiny MASTERPASS on the ground", 12, NULL, false, true, false); items.push_back(masterpass); //5
 	Item* superseasuit = new Item("superseasuit", "There is a SUPERSEASUIT", 16, NULL, false, true, true); items.push_back(superseasuit); //6
-	Item* tank = new Item("tank", "There is a oxigent on the ground TANK", 11, NULL, false, false, false); items.push_back(tank); //6
+	Item* tank = new Item("tank", "There is a oxigent on the ground TANK", 11, NULL, false, false, false); items.push_back(tank); //7
 
 
 	//Containers
@@ -43,11 +43,11 @@ World::World()
 	Room* entrancewest = new Room("BUILDING<WEST>", "It's a big building", 8); rooms.push_back(entrancewest);//8
 	Room* room1 = new Room("ROOM 1", "This furniture of this room is completly destroyed", 9); rooms.push_back(room1);//9
 	Room* room2 = new Room("ROOM 2", "It's a very dark room, you can't see anithing", 10);	rooms.push_back(room2); //10
-	Room* lightsroom = new Room("LIGHTS ROOM", "It's a big room with some switches and electircity warnings on the screens.\n In this place is controlled all the electricity of.\n the base", 11);				 rooms.push_back(lightsroom);	  //11
+	Room* lightsroom = new Room("LIGHTS ROOM", "It's a big room with some switches and electircity warnings on the screens.\n In this place is controlled all the electricity of.\n the base", 11);	 rooms.push_back(lightsroom); //11
 	Room* holeroom = new Room("HOLE ROOM", "It's very dark down here", 12); rooms.push_back(holeroom);//12
 	Room* passage1 = new Room("PASSAGE1", "It's a long passage", 13); rooms.push_back(passage1);//13
 	Room* passage2 = new Room("PASSAGE2", "It's a long passage", 14); rooms.push_back(passage2);//14
-	Room* controlroom = new Room("CONTROL ROOM", "It's full of shining lights and wierd buttons.\n Mabye you can activate something usefull here", 15);											 rooms.push_back(passage1);		  //15
+	Room* controlroom = new Room("CONTROL ROOM", "It's full of shining lights and wierd buttons.\n Mabye you can activate something usefull here", 15); rooms.push_back(controlroom); //15
 	Room* deeppreparation = new Room("DEEP PREPARATION", "It's a small room with recipents full of seasuits", 16); rooms.push_back(deeppreparation);//16
 	Room* deepstation = new Room("DEEP STATION", "It's super dark down here", 17); rooms.push_back(deepstation);//17
 	Room* path1 = new Room("PATH<1>", "It's a long path illuminated by lampposts", 18); rooms.push_back(path1);//18
@@ -95,8 +95,8 @@ World::World()
 	Exit* hole_room = new Exit(holeroom, passage1, "south", NULL, true); exits.push_back(hole_room); //28
 	Exit* passage2_west = new Exit(passage2, elevator, "west", masterpass, false); exits.push_back(passage2_west); //29
 	Exit* passage1_north = new Exit(passage1, holeroom, "north", NULL, true); exits.push_back(passage1_north); //30
-	Exit* passage1_west = new Exit(passage1, passage2, "west", NULL, true); exits.push_back(passage1_west); //31
-	Exit* passage1_south = new Exit(passage1, controlroom, "south", NULL, true); exits.push_back(passage1_south); //32
+	Exit* passage1_south = new Exit(passage1, controlroom, "south", NULL, true); exits.push_back(passage1_south); //31
+	Exit* passage1_west = new Exit(passage1, passage2, "west", NULL, true); exits.push_back(passage1_west); //32
 	Exit* passage2_east = new Exit(passage2, passage1, "east", NULL, true); exits.push_back(passage2_east); //33
 
 

@@ -22,9 +22,9 @@ public:
 
 	int get_position();
 	void set_position(int _position);
-	bool on_player = false;
-	bool can_be_used; bool is_used = false;
-	bool can_be_equiped; bool is_equiped = false;
+	bool on_player = false; //false
+	bool can_be_used; bool is_used = false; //false
+	bool can_be_equiped; bool is_equiped = false; //false
 	bool can_interact;
 };
 

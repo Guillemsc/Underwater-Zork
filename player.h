@@ -58,7 +58,7 @@ public:
 	bool tank = true;
 	bool end = false;
 	bool light = false;
-	bool elevator = false;
+	bool elevator = false; //false
 	bool broken_tank = false;
 };
 

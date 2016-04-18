@@ -268,12 +268,14 @@ void Inputs(p2vector<Player*> &player, p2String a1, p2String a2, p2String a3, p2
 				{
 					if (player[0]->elevator == true)
 					{
+						printf("You used the elevator.\nYou go throught the deepness.\n\n");
 						player[0]->set_position(17); player[0]->want_to_look = true; player[0]->want_to_input = false;
 					}
-					else{ printf("The elevator is turned off"); }
+					else{ printf("The elevator is turned off.\n"); }
 				}
 				else if (player[0]->get_position() == 17)
 				{
+					printf("You used the elevator.\n\n");
 					player[0]->set_position(3); player[0]->want_to_look = true; player[0]->want_to_input = false;
 				}
 				else{ printf("You can't do that.\n"); }
@@ -285,7 +287,7 @@ void Inputs(p2vector<Player*> &player, p2String a1, p2String a2, p2String a3, p2
 				{
 					if (player[0]->broken_tank == false)
 					{
-						printf("You finally made it.\n"); getchar();
+						printf("You finally made it.     (press intro to continue)\n"); getchar();
 						printf("You go inside the train.\n"); getchar();
 						printf("The train starts moving.\n"); getchar();
 						printf("You escaped! Congratulations.\n\n"); getchar();
@@ -443,16 +445,16 @@ void Check(p2vector<Player*> &player, p2vector<Room*> &rooms, p2vector<Exit*> &e
 	}
 
 	//fight
-	else if (player[0]->get_position() == 17 && enemies[0]->is_dead == false)
+	else if (player[0]->get_position() == 19 && enemies[0]->is_dead == false)
 	{
-		printf("You feel like someone is following you.\n"); getchar();
+		printf("\nYou feel like someone is following you.      (press enter to continue)\n"); getchar();
 		printf("You turn arround.\n"); getchar();
 		printf("And then you see it, its a man that's looking at you.\n"); getchar();
 		printf("He has a wierd eyes. He start running at you.\n"); getchar();
-		printf("You are prepared to atack.\n"); getchar();
+		printf("You are prepared to atack."); getchar();
 
 		int i;
-		while (enemies[0]->get_healt() > 0 || player[0]->get_healt() > 0)
+		while (enemies[0]->get_healt() > 0 && player[0]->get_healt() > 0)
 		{
 			for (i = 0; i < items.get_things(); i++)
 			{
@@ -461,7 +463,7 @@ void Check(p2vector<Player*> &player, p2vector<Room*> &rooms, p2vector<Exit*> &e
 					break;
 				}
 			}
-			printf("The man hits you and deals you 20 of damage.\n"); player[0]->substract_health(20); getchar();
+			printf("\nThe man hits you and deals you 20 of damage.\n"); player[0]->substract_health(20); getchar();
 			if (items[i]->is_equiped == true)
 			{
 				printf("You hit the man with the bar and deal 40 of damage"); enemies[0]->substract_healt(40); getchar();
